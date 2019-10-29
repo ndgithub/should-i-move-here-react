@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, Fragment } from 'react';
+import Landing from './components/Landing';
+import CityInfo from './components/CityInfo';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [place, setPlace] = useState({
+    formatted_address: '',
+    lat: '',
+    lng: ''
+  });
+
+  // have entered city in this state
+
+  const updatePlace = place => {
+    console.log(JSON.stringify(place) + 'hi');
+    setPlace(place);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {!place.city ? (
+        <Landing updatePlace={updatePlace} />
+      ) : (
+        <CityInfo place={place} />
+      )}
+    </Fragment>
   );
-}
+};
 
 export default App;
