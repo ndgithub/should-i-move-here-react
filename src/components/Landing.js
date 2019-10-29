@@ -1,5 +1,6 @@
 import React from 'react';
 import Autocomplete from 'react-google-autocomplete';
+import MapContainer from './info-sections/MapContainer';
 
 const Landing = ({ updatePlace }) => {
   return (
@@ -17,7 +18,7 @@ const Landing = ({ updatePlace }) => {
               });
             }}
             types={['(regions)']}
-            componentRestrictions={undefined}
+            componentRestrictions={{ country: 'us' }}
           />
         </div>
       </div>

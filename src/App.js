@@ -12,17 +12,17 @@ const App = () => {
 
   // have entered city in this state
 
-  const updatePlace = place => {
-    console.log(JSON.stringify(place) + 'hi');
-    setPlace(place);
+  const updatePlace = placed => {
+    console.log(placed);
+    setPlace(placed);
   };
 
   return (
     <Fragment>
-      {!place.city ? (
+      {!place.formatted_address ? (
         <Landing updatePlace={updatePlace} />
       ) : (
-        <CityInfo place={place} />
+        <CityInfo updatePlace={updatePlace} place={place} />
       )}
     </Fragment>
   );

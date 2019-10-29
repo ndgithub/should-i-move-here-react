@@ -31,3 +31,46 @@ body {}
   justify-content: center;
   text-align: center;
 }
+
+.container {
+  max-width: 1100px;
+  padding: 20px;
+}
+
+.city-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, 300px);
+  grid-template-areas: "header ." "search ." "weather ." "restaurant ." "brewery ." "map .";
+}
+
+.header-container {
+  grid-area: header;
+}
+
+.search-container {
+  grid-area: search;
+  background: green;
+}
+
+.map-container {
+  grid-area: map;
+  border: 2px solid red;
+  height: 300px;
+  width: 300px;
+}
+
+.weather-container {
+  grid-area: weather;
+  background: yellow;
+}
+
+.restaurant-container {
+  grid-area: restaurant;
+  background: blue;
+}
+
+.brewery-container {
+  grid-area: brewery;
+  background: red;
+}
