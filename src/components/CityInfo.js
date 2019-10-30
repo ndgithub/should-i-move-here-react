@@ -11,7 +11,7 @@ const CityInfo = ({ updatePlace, place }) => {
   return (
     <div className="city-info">
       <Restaurants place={place} />
-      <Breweries />
+      <Breweries place={place} />
       <Header />
       <Search updatePlace={updatePlace} place={place} />
       <div className="map-container">

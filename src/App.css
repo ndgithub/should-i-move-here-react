@@ -41,7 +41,7 @@ body {}
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(6, 300px);
-  grid-template-areas: "header ." "search ." "map ." "weather ." "restaurant ." "brewery .";
+  grid-template-areas: "brewery ." "header ." "search ." "map ." "weather ." "restaurant .";
 }
 
 .header-container {

@@ -8,6 +8,7 @@ export const getRestInfo = async place => {
     return zomRestInfo;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 
@@ -25,6 +26,7 @@ const getZomLocInfo = async ({ formatted_address, lat, lng }) => {
     return { zomEntityId, zomEntityIdType };
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 
@@ -47,8 +49,22 @@ const getZomRestInfo = async ({ zomEntityId, zomEntityIdType }) => {
       let cuisines = rest.cuisines;
       rests.push({ name, rating, priceRange, cuisines });
     }
-    return rests;
+    return { rests };
   } catch (error) {
     console.log(error);
+    throw error;
+  }
+};
+
+export const getBreweries = async place => {
+  try {
+    const city = place.formatted_address.split(',')[0];
+    console.log('city', city);
+    const res = await axios.get(`https://api.openbrewerydb.org/breweries?
+    by_city=${city}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
   }
 };

@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { getRestInfo } from '../../apiUtils';
+import Spinner from '../Loading';
 const Restaurants = ({ place }) => {
-  const [restData, setRestData] = useState({});
-  // console.log(place);
-  // console.log(formatted_address);
+  const [restState, setRestState] = useState({
+    isLoading: true,
+    isError: false
+  });
 
-  //get location, pass in
   useEffect(() => {
     const getRestInfos = async () => {
+      // Set the state again so if the users enters a new city, you get the loading symbol and errors reset to false.
+      setRestState({ isLoading: true, isError: false });
       try {
         const restInfo = await getRestInfo(place);
-        console.log(restInfo);
-        setRestData(restInfo);
+        setRestState({ ...restInfo, isLoading: false, isError: false });
       } catch (error) {
         console.log(error);
+        setRestState({
+          isLoading: false,
+          isError: true
+        });
       }
     };
 
@@ -21,7 +27,15 @@ const Restaurants = ({ place }) => {
   }, [place]);
 
   return (
-    <div className="restaurant-container"> {JSON.stringify(restData)}</div>
+    <div className="restaurant-container">
+      {restState.isLoading ? (
+        <Spinner />
+      ) : restState.isError ? (
+        'We had some trouble getting the restaurants'
+      ) : (
+        JSON.stringify(restState)
+      )}
+    </div>
   );
 };
 
