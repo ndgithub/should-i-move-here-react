@@ -40,7 +40,7 @@ body {}
 .city-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, 300px);
+  grid-template-rows: repeat(6, auto);
   grid-template-areas: "brewery ." "header ." "search ." "map ." "weather ." "restaurant .";
 }
 

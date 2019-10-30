@@ -4,7 +4,6 @@ export const getRestInfo = async place => {
   try {
     const zomLocInfo = await getZomLocInfo(place);
     const zomRestInfo = await getZomRestInfo(zomLocInfo);
-    console.log(zomRestInfo);
     return zomRestInfo;
   } catch (error) {
     console.log(error);
@@ -56,15 +55,82 @@ const getZomRestInfo = async ({ zomEntityId, zomEntityIdType }) => {
   }
 };
 
-export const getBreweries = async place => {
+export const getBreweries = async ({ formatted_address }) => {
   try {
-    const city = place.formatted_address.split(',')[0];
-    console.log('city', city);
+    const city = formatted_address.split(',')[0];
     const res = await axios.get(`https://api.openbrewerydb.org/breweries?
-    by_city=${city}`);
+by_city=${city}`);
     return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getWeathData = async ({ lat, lng }) => {
+  console.log('lat', lat);
+  console.log('ssuuuuuuuup');
+  lat = lat.toString();
+  console.log('lat', lat);
+  lng = lng.toString();
+  const date = new Date();
+  const lastYear = (date.getFullYear() - 1).toString();
+  let month = '0';
+
+  let key = process.env.REACT_APP_DARK_SKY_API_KEY;
+  const promises = [];
+
+  for (var i = 1; i < 13; i++) {
+    if (i < 10) {
+      month = '0' + i;
+    } else {
+      month = i;
+    }
+    const queryDate = lastYear + '-' + month + '-15' + 'T12:00:00';
+    const queryURL =
+      'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' +
+      key +
+      '/' +
+      lat +
+      ',' +
+      lng +
+      ',' +
+      queryDate;
+    promises.push(
+      axios.get(queryURL, {
+        headers: {
+          crossDomain: true
+        }
+      })
+    );
+  }
+  try {
+    const responses = await Promise.all(promises);
+    let temps = responses.map(month => ({
+      time: month.data.currently.time,
+      tempHigh: month.data.daily.data[0].temperatureHigh,
+      tempLow: month.data.daily.data[0].temperatureLow
+    }));
+    temps.sort((a, b) => {
+      return a.time - b.time;
+    });
+    return temps;
   } catch (error) {
     console.log(error);
     throw error;
   }
+
+  //   Promise.all(promises)
+  //     .then(values => {
+  //       console.log(values);
+  //       let temps = values.map(month => ({
+  //         time: month.data.currently.time,
+  //         tempHigh: month.data.daily.data[0].temperatureHigh,
+  //         tempLow: month.data.daily.data[0].temperatureLow
+  //       }));
+  //       temps.sort((a, b) => {
+  //         return a.time - b.time;
+  //       });
+  //       return temps;
+  //     })
+  //     .catch(error => console.log(error));
 };

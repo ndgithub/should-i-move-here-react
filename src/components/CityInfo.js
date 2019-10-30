@@ -12,12 +12,12 @@ const CityInfo = ({ updatePlace, place }) => {
     <div className="city-info">
       <Restaurants place={place} />
       <Breweries place={place} />
-      <Header />
+      <Header place={place} />
       <Search updatePlace={updatePlace} place={place} />
       <div className="map-container">
         <MapContainer coord={{ lat: place.lat, lng: place.lng }} />
       </div>
-      <Weather />
+      <Weather place={place} />
     </div>
   );
 };

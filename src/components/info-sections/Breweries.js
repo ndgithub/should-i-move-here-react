@@ -9,13 +9,12 @@ const Breweries = ({ place }) => {
 
   useEffect(() => {
     const fetchBreweries = async () => {
+      setBreweryState({
+        isLoading: true,
+        isError: false
+      });
       try {
-        console.log('asdf');
-        console.log(place);
-
         const res = await getBreweries(place);
-        console.log('si');
-
         setBreweryState({
           breweries: res,
           isLoading: false,
