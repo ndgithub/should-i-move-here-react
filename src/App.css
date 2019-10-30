@@ -41,7 +41,7 @@ body {}
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(6, 300px);
-  grid-template-areas: "header ." "search ." "weather ." "restaurant ." "brewery ." "map .";
+  grid-template-areas: "header ." "search ." "map ." "weather ." "restaurant ." "brewery .";
 }
 
 .header-container {
@@ -58,6 +58,7 @@ body {}
   border: 2px solid red;
   height: 300px;
   width: 300px;
+  overflow: hidden;
 }
 
 .weather-container {

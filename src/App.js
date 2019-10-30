@@ -2,6 +2,9 @@ import React, { useState, Fragment } from 'react';
 import Landing from './components/Landing';
 import CityInfo from './components/CityInfo';
 import './App.css';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const App = () => {
   const [place, setPlace] = useState({
@@ -11,10 +14,10 @@ const App = () => {
   });
 
   // have entered city in this state
+  const updatePlace = place => {
+    console.log(place);
 
-  const updatePlace = placed => {
-    console.log(placed);
-    setPlace(placed);
+    setPlace(place);
   };
 
   return (
