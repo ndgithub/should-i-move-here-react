@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getWeathData } from '../../apiUtils';
 import Loading from '../Loading';
+import { Line } from 'react-chartjs-2';
 
 const Weather = ({ place }) => {
   const [weathState, setWeathState] = useState({
@@ -12,9 +13,7 @@ const Weather = ({ place }) => {
   useEffect(() => {
     const fetchWeath = async () => {
       try {
-        console.log(place);
         const res = await getWeathData(place);
-        console.log(res);
         setWeathState({
           isLoading: false,
           isError: false,
@@ -36,9 +35,42 @@ const Weather = ({ place }) => {
       {weathState.isLoading ? (
         <Loading />
       ) : weathState.isError ? (
-        'There was a problem getting the local breweries'
+        'There was a problem getting the weather'
       ) : (
-        JSON.stringify(weathState.weathData)
+        JSON.stringify(weathState.weathData) && (
+          <Line
+            data={{
+              labels: [
+                'Jan',
+                'Feb',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'Aug',
+                'Sept',
+                'Oct',
+                'Nov',
+                'Dec'
+              ],
+              datasets: [
+                {
+                  label: 'Highs',
+                  borderColor: 'rgb(255, 0, 0)',
+                  data: weathState.weathData.highs,
+                  fill: false
+                },
+                {
+                  label: 'Lows',
+                  borderColor: 'rgb(0, 0, 255)',
+                  data: weathState.weathData.lows,
+                  fill: false
+                }
+              ]
+            }}
+          />
+        )
       )}
     </div>
   );

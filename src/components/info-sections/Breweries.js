@@ -36,8 +36,10 @@ const Breweries = ({ place }) => {
         <Loading />
       ) : breweryState.isError ? (
         'There was a problem getting the local breweries'
-      ) : (
+      ) : breweryState.breweries.length > 0 ? (
         JSON.stringify(breweryState.breweries)
+      ) : (
+        'There are no breweries found'
       )}
     </div>
   );

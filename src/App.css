@@ -1,4 +1,5 @@
-body {}
+body {
+}
 
 * {
   box-sizing: border-box;
@@ -40,8 +41,8 @@ body {}
 .city-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, auto);
-  grid-template-areas: "brewery ." "header ." "search ." "map ." "weather ." "restaurant .";
+  grid-template-rows: repeat(6, 200px);
+  grid-template-areas: 'header header' 'search .' 'brewery weather' 'map .' '. .' 'restaurant .';
 }
 
 .header-container {
@@ -63,7 +64,7 @@ body {}
 
 .weather-container {
   grid-area: weather;
-  background: yellow;
+  background: white;
 }
 
 .restaurant-container {

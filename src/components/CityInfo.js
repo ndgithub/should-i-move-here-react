@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import Autocomplete from 'react-google-autocomplete';
+import React from 'react';
 import MapContainer from './info-sections/MapContainer';
 import Weather from './info-sections/Weather';
 import Restaurants from './info-sections/Restaurants';

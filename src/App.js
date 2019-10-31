@@ -3,6 +3,7 @@ import Landing from './components/Landing';
 import CityInfo from './components/CityInfo';
 import './App.css';
 import dotenv from 'dotenv';
+import { addToRecSearches } from './apiUtils';
 
 dotenv.config();
 
@@ -15,8 +16,7 @@ const App = () => {
 
   // have entered city in this state
   const updatePlace = place => {
-    console.log(place);
-
+    addToRecSearches(place);
     setPlace(place);
   };
 

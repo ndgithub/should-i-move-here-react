@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { LOC_STORE_REC_SEARCHES } from './constants';
 
 export const getRestInfo = async place => {
   try {
@@ -85,7 +86,7 @@ export const getWeathData = async ({ lat, lng }) => {
     } else {
       month = i;
     }
-    const queryDate = lastYear + '-' + month + '-15' + 'T12:00:00';
+    const queryDate = lastYear + '-' + month + '-15T12:00:00';
     const queryURL =
       'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' +
       key +
@@ -113,24 +114,24 @@ export const getWeathData = async ({ lat, lng }) => {
     temps.sort((a, b) => {
       return a.time - b.time;
     });
-    return temps;
+    const highs = temps.map(month => month.tempHigh);
+    const lows = temps.map(month => month.tempLow);
+    return { highs, lows };
   } catch (error) {
     console.log(error);
     throw error;
   }
+};
 
-  //   Promise.all(promises)
-  //     .then(values => {
-  //       console.log(values);
-  //       let temps = values.map(month => ({
-  //         time: month.data.currently.time,
-  //         tempHigh: month.data.daily.data[0].temperatureHigh,
-  //         tempLow: month.data.daily.data[0].temperatureLow
-  //       }));
-  //       temps.sort((a, b) => {
-  //         return a.time - b.time;
-  //       });
-  //       return temps;
-  //     })
-  //     .catch(error => console.log(error));
+export const addToRecSearches = place => {
+  let recentSearches = JSON.parse(localStorage.getItem(LOC_STORE_REC_SEARCHES));
+  if (recentSearches) {
+    recentSearches.push(place);
+    localStorage.setItem(
+      LOC_STORE_REC_SEARCHES,
+      JSON.stringify(recentSearches)
+    );
+  } else {
+    localStorage.setItem(LOC_STORE_REC_SEARCHES, JSON.stringify([place]));
+  }
 };
