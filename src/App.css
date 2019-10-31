@@ -41,7 +41,7 @@ body {
 .city-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, 200px);
+  grid-template-rows: repeat(6);
   grid-template-areas: 'header header' 'search .' 'brewery weather' 'map .' '. .' 'restaurant .';
 }
 

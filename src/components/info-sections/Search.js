@@ -18,7 +18,6 @@ const Search = ({ updatePlace, place }) => {
         types={['(regions)']}
         componentRestrictions={{ country: 'us' }}
       />
-      <RecentSearches />
     </div>
   );
 };

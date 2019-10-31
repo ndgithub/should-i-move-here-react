@@ -123,10 +123,12 @@ export const getWeathData = async ({ lat, lng }) => {
   }
 };
 
-export const addToRecSearches = place => {
+export const addToRecSearches = (place, updateState) => {
   let recentSearches = JSON.parse(localStorage.getItem(LOC_STORE_REC_SEARCHES));
   if (recentSearches) {
-    recentSearches.push(place);
+    recentSearches.unshift(place);
+    if (recentSearches.length > 5) recentSearches.pop();
+    updateState(recentSearches);
     localStorage.setItem(
       LOC_STORE_REC_SEARCHES,
       JSON.stringify(recentSearches)

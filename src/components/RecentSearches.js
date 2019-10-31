@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { LOC_STORE_REC_SEARCHES } from '../constants';
 
-const RecentSearches = () => {
-  const [state, setState] = useState({
-    searches: []
-  });
-
-  let recentSearches = JSON.parse(localStorage.getItem(LOC_STORE_REC_SEARCHES));
-  useEffect(() => {
-    setState({
-      searches: recentSearches
-    });
-  }, [recentSearches]);
-
+const RecentSearches = ({ recSearches }) => {
   return (
     <div>
-      {state.searches
-        ? JSON.stringify(state.searches)
+      {recSearches
+        ? JSON.stringify(recSearches)
         : 'There are no recent searches'}
     </div>
   );

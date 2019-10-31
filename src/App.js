@@ -4,6 +4,7 @@ import CityInfo from './components/CityInfo';
 import './App.css';
 import dotenv from 'dotenv';
 import { addToRecSearches } from './apiUtils';
+import { LOC_STORE_REC_SEARCHES } from './constants';
 
 dotenv.config();
 
@@ -14,18 +15,26 @@ const App = () => {
     lng: ''
   });
 
+  const [recSearches, setRecSearches] = useState(
+    JSON.parse(localStorage.getItem(LOC_STORE_REC_SEARCHES))
+  );
+
   // have entered city in this state
   const updatePlace = place => {
-    addToRecSearches(place);
+    addToRecSearches(place, setRecSearches);
     setPlace(place);
   };
 
   return (
     <Fragment>
       {!place.formatted_address ? (
-        <Landing updatePlace={updatePlace} />
+        <Landing updatePlace={updatePlace} recSearches={recSearches} />
       ) : (
-        <CityInfo updatePlace={updatePlace} place={place} />
+        <CityInfo
+          updatePlace={updatePlace}
+          place={place}
+          recSearches={recSearches}
+        />
       )}
     </Fragment>
   );
