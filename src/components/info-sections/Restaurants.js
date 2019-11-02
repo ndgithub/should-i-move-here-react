@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getRestInfo } from '../../apiUtils';
-import Spinner from '../Loading';
+import Loading from '../Loading';
+import RestItem from './RestItem';
+console.log('RestItem', RestItem);
+
 const Restaurants = ({ place }) => {
   const [restState, setRestState] = useState({
+    rests: [],
     isLoading: true,
     isError: false
   });
@@ -13,7 +17,7 @@ const Restaurants = ({ place }) => {
       setRestState({ isLoading: true, isError: false });
       try {
         const restInfo = await getRestInfo(place);
-        setRestState({ ...restInfo, isLoading: false, isError: false });
+        setRestState({ rests: restInfo, isLoading: false, isError: false });
       } catch (error) {
         console.log(error);
         setRestState({
@@ -29,11 +33,13 @@ const Restaurants = ({ place }) => {
   return (
     <div className="restaurant-container">
       {restState.isLoading ? (
-        <Spinner />
+        <Loading />
       ) : restState.isError ? (
         'We had some trouble getting the restaurants'
       ) : (
-        JSON.stringify(restState)
+        restState.rests.map(rest => {
+          return <RestItem rest={rest} />;
+        })
       )}
     </div>
   );

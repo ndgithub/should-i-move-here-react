@@ -8,17 +8,21 @@ import Search from './info-sections/Search';
 import RecentSearches from './RecentSearches';
 
 const CityInfo = ({ updatePlace, place, recSearches }) => {
+  console.log('recSearches', recSearches);
   return (
-    <div className="city-info">
-      <Restaurants place={place} />
-      <Breweries place={place} />
-      <Header place={place} />
-      <Search updatePlace={updatePlace} place={place} />
-      <RecentSearches recSearches={recSearches} />j
-      <div className="map-container">
-        <MapContainer coord={{ lat: place.lat, lng: place.lng }} />
+    <div className="container">
+      <div className="city-info">
+        <Restaurants place={place} />
+        <Breweries place={place} />
+        <Header place={place} />
+        <Search updatePlace={updatePlace} place={place}>
+          <RecentSearches recSearches={recSearches} />
+        </Search>
+        <div className="map-container">
+          <MapContainer coord={{ lat: place.lat, lng: place.lng }} />
+        </div>
+        <Weather place={place} />
       </div>
-      <Weather place={place} />
     </div>
   );
 };

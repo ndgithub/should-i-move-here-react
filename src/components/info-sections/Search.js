@@ -2,7 +2,7 @@ import React from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import RecentSearches from '../RecentSearches';
 
-const Search = ({ updatePlace, place }) => {
+const Search = ({ updatePlace, recSearches, children }) => {
   return (
     <div className="search-container">
       <Autocomplete
@@ -18,6 +18,7 @@ const Search = ({ updatePlace, place }) => {
         types={['(regions)']}
         componentRestrictions={{ country: 'us' }}
       />
+      {children}
     </div>
   );
 };

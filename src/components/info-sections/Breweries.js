@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getBreweries } from '../../apiUtils';
 import Loading from '../Loading';
+import BreweryItem from './BreweryItem';
 const Breweries = ({ place }) => {
   const [breweryState, setBreweryState] = useState({
+    breweries: [],
     isLoading: true,
     isError: false
   });
@@ -15,6 +17,7 @@ const Breweries = ({ place }) => {
       });
       try {
         const res = await getBreweries(place);
+        console.log(res);
         setBreweryState({
           breweries: res,
           isLoading: false,
@@ -30,6 +33,7 @@ const Breweries = ({ place }) => {
     };
     fetchBreweries();
   }, [place]);
+
   return (
     <div className="brewery-container">
       {breweryState.isLoading ? (
@@ -37,7 +41,10 @@ const Breweries = ({ place }) => {
       ) : breweryState.isError ? (
         'There was a problem getting the local breweries'
       ) : breweryState.breweries.length > 0 ? (
-        JSON.stringify(breweryState.breweries)
+        breweryState.breweries.slice(0, 5).map(brewery => {
+          console.log(brewery);
+          return <BreweryItem brewery={brewery} />;
+        })
       ) : (
         'There are no breweries found'
       )}

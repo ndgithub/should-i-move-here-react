@@ -1,5 +1,4 @@
-body {
-}
+body {}
 
 * {
   box-sizing: border-box;
@@ -36,13 +35,15 @@ body {
 .container {
   max-width: 1100px;
   padding: 20px;
+  margin: auto;
 }
 
 .city-info {
   display: grid;
+  gap: 10px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6);
-  grid-template-areas: 'header header' 'search .' 'brewery weather' 'map .' '. .' 'restaurant .';
+  grid-template-rows: repeat(4);
+  grid-template-areas: 'header header' 'search search' 'map weather' 'restaurants breweries';
 }
 
 .header-container {
@@ -68,11 +69,11 @@ body {
 }
 
 .restaurant-container {
-  grid-area: restaurant;
+  grid-area: restaurants;
   background: blue;
 }
 
 .brewery-container {
-  grid-area: brewery;
+  grid-area: breweries;
   background: red;
 }

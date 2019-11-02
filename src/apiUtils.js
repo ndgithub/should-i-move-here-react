@@ -5,6 +5,7 @@ export const getRestInfo = async place => {
   try {
     const zomLocInfo = await getZomLocInfo(place);
     const zomRestInfo = await getZomRestInfo(zomLocInfo);
+    console.log('zomRestInfo', zomRestInfo);
     return zomRestInfo;
   } catch (error) {
     console.log(error);
@@ -49,7 +50,7 @@ const getZomRestInfo = async ({ zomEntityId, zomEntityIdType }) => {
       let cuisines = rest.cuisines;
       rests.push({ name, rating, priceRange, cuisines });
     }
-    return { rests };
+    return rests;
   } catch (error) {
     console.log(error);
     throw error;
@@ -135,5 +136,6 @@ export const addToRecSearches = (place, updateState) => {
     );
   } else {
     localStorage.setItem(LOC_STORE_REC_SEARCHES, JSON.stringify([place]));
+    updateState([place]);
   }
 };
