@@ -16,7 +16,7 @@ const CityInfo = ({ updatePlace, place, recSearches }) => {
         <Breweries place={place} />
         <Header place={place} />
         <Search updatePlace={updatePlace} place={place}>
-          <RecentSearches recSearches={recSearches} />
+          <RecentSearches recSearches={recSearches} updatePlace={updatePlace} />
         </Search>
         <div className="map-container">
           <MapContainer coord={{ lat: place.lat, lng: place.lng }} />

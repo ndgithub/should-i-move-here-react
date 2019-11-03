@@ -1,4 +1,6 @@
-body {}
+body {
+  background: url('./images/skyline.jpg') no-repeat center center/cover;
+}
 
 * {
   box-sizing: border-box;
@@ -7,7 +9,6 @@ body {}
 }
 
 .landing {
-  background: url('./images/skyline.jpg') no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -56,10 +57,9 @@ body {}
 }
 
 .map-container {
+  position: relative;
   grid-area: map;
   border: 2px solid red;
-  height: 300px;
-  width: 300px;
   overflow: hidden;
 }
 

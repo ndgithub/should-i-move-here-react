@@ -10,7 +10,10 @@ const Landing = ({ updatePlace, recSearches }) => {
         <div className="landing-inner">
           <p>Landing Page</p>
           <Search updatePlace={updatePlace}>
-            <RecentSearches recSearches={recSearches} />
+            <RecentSearches
+              recSearches={recSearches}
+              updatePlace={updatePlace}
+            />
           </Search>
         </div>
       </div>

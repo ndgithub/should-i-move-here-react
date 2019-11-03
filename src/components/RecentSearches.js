@@ -1,18 +1,14 @@
 import React from 'react';
+import RecentSearchesItem from './info-sections/RecentSearchesItems';
 
-const RecentSearches = ({ recSearches }) => {
+const RecentSearches = ({ recSearches, updatePlace }) => {
   console.log('recSearches', recSearches);
   return (
     <div>
       {recSearches
-        ? JSON.stringify(
-            recSearches.map(place => {
-              place = place.formatted_address.split(',');
-              place.pop();
-              place = place.join(',');
-              return place;
-            })
-          )
+        ? recSearches.map(place => (
+            <RecentSearchesItem place={place} updatePlace={updatePlace} />
+          ))
         : 'There are no recent searches'}
     </div>
   );
