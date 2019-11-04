@@ -8,7 +8,11 @@ const Landing = ({ updatePlace, recSearches }) => {
     <div className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <p>Landing Page</p>
+          <div className="title">Where Should I Move?</div>
+          <div className="sub-title">
+            Enter a U.S. city to learn more about your next home : )
+          </div>
+
           <Search updatePlace={updatePlace}>
             <RecentSearches
               recSearches={recSearches}

@@ -1,5 +1,5 @@
 body {
-  background: url('./images/skyline.jpg') no-repeat center center/cover;
+  background: url('http://cdn.shopify.com/s/files/1/1207/2972/products/x31_grande.jpg?v=1500555567') no-repeat center center/cover;
 }
 
 * {
@@ -33,10 +33,33 @@ body {
   text-align: center;
 }
 
+.main-background {
+  background: url('http://cdn.shopify.com/s/files/1/1207/2972/products/x31_grande.jpg?v=1500555567') no-repeat center center/cover;
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+}
+
 .container {
   max-width: 1100px;
   padding: 20px;
   margin: auto;
+}
+
+.title {
+  font-size: 64px;
+  font-family: 'Raleway', 'Roboto', 'Arial';
+  color: #8fbc8f;
+}
+
+.header-container {
+  color: #8fbc8f;
+  font-size: 64px;
+  font-family: 'Raleway', 'Roboto', 'Arial';
+}
+
+.sub-title {
+  margin-bottom: 40px;
 }
 
 .city-info {
@@ -53,7 +76,6 @@ body {
 
 .search-container {
   grid-area: search;
-  background: green;
 }
 
 .map-container {
@@ -76,4 +98,21 @@ body {
 .brewery-container {
   grid-area: breweries;
   background: red;
+}
+
+.search-container input {
+  height: 50px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  border: none;
+  min-width: 400px;
+  margin-bottom: 40px;
+}
+
+.rec-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
