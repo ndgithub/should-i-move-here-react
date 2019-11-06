@@ -31,7 +31,7 @@ const Restaurants = ({ place }) => {
   }, [place]);
 
   return (
-    <div className="restaurant-container">
+    <section className="restaurant-container">
       {restState.isLoading ? (
         <Loading />
       ) : restState.isError ? (
@@ -41,7 +41,7 @@ const Restaurants = ({ place }) => {
           return <RestItem rest={rest} />;
         })
       )}
-    </div>
+    </section>
   );
 };
 

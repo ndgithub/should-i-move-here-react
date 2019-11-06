@@ -40,7 +40,7 @@ const getZomRestInfo = async ({ zomEntityId, zomEntityIdType }) => {
 
     const reqUrl = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${zomEntityId}&entity_type=${zomEntityIdType}`;
     const res = await axios.get(reqUrl, config);
-
+    console.log(res.data);
     let rests = [];
     for (let i = 0; i < 10; i++) {
       let rest = res.data.best_rated_restaurant[i].restaurant;
@@ -48,7 +48,8 @@ const getZomRestInfo = async ({ zomEntityId, zomEntityIdType }) => {
       let rating = rest.user_rating.aggregate_rating;
       let priceRange = rest.price_range;
       let cuisines = rest.cuisines;
-      rests.push({ name, rating, priceRange, cuisines });
+      let imgSrc = rest.thumb;
+      rests.push({ name, rating, priceRange, cuisines, imgSrc });
     }
     return rests;
   } catch (error) {

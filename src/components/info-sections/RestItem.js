@@ -1,21 +1,14 @@
 import React from 'react';
 
-const RestItem = ({ rest: { name, rating, priceRange, cuisines } }) => {
+const RestItem = ({ rest: { name, rating, priceRange, cuisines, imgSrc } }) => {
   return (
-    <div>
-      <ul>
-        <li>{name}</li>
-      </ul>
-      <ul>
-        <li>{rating}</li>
-      </ul>
-      <ul>
-        <li>{priceRange}</li>
-      </ul>
-      <ul>
-        <li>{cuisines}</li>
-      </ul>
-      {`************************************`}
+    <div class="rest-item">
+      <div class="rest-img"></div>
+      <div class="rest-name">{name}</div>
+      <div class="rest-rating">{rating}</div>
+      <div class="rest-price-range">{priceRange}</div>
+      <div class="rest-cuisines">{cuisines}</div>
+      <img src={imgSrc} alt="restaurant" class="rest-img" />
     </div>
   );
 };
