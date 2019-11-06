@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getBreweries } from '../../apiUtils';
 import Loading from '../Loading';
 import BreweryItem from './BreweryItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBeer } from '@fortawesome/free-solid-svg-icons';
 const Breweries = ({ place }) => {
   const [breweryState, setBreweryState] = useState({
     breweries: [],
@@ -35,7 +37,11 @@ const Breweries = ({ place }) => {
   }, [place]);
 
   return (
-    <div className="brewery-container">
+    <section className="brewery-container section-container">
+      <h2 class="section-title">
+        {' '}
+        <FontAwesomeIcon icon={faBeer} /> Local Breweries
+      </h2>
       {breweryState.isLoading ? (
         <Loading />
       ) : breweryState.isError ? (
@@ -48,7 +54,7 @@ const Breweries = ({ place }) => {
       ) : (
         'There are no breweries found'
       )}
-    </div>
+    </section>
   );
 };
 

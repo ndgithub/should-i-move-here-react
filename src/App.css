@@ -9,6 +9,7 @@ body {}
 #root {
   width: 100%;
   height: 100%;
+  font-family: 'Raleway', 'Roboto', 'Arial';
 }
 
 .landing {
@@ -84,7 +85,6 @@ body {}
 .map-container {
   position: relative;
   grid-area: map;
-  border: 2px solid red;
   overflow: hidden;
 }
 
@@ -93,8 +93,13 @@ body {}
   background: white;
 }
 
-.restaurant-container {
-  background: white;
+.restaurant-container {}
+
+h2.section-title {
+  font-size: 30px;
+  background: #e6e6e6;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .restaurant-list {
@@ -102,17 +107,30 @@ body {}
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .rest-item {
-  width: 50%;
-  padding: 10px;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  min-width: 10px;
+}
+
+.rest-item {
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  min-width: 10px;
+}
+
+.section-container {
+  background: white;
   text-align: center;
 }
 
 .brewery-container {
   grid-area: breweries;
-  background: red;
 }
 
 .search-container input {

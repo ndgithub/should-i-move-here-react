@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getRestInfo } from '../../apiUtils';
 import Loading from '../Loading';
 import RestItem from './RestItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 console.log('RestItem', RestItem);
 
 const Restaurants = ({ place }) => {
@@ -31,8 +33,11 @@ const Restaurants = ({ place }) => {
   }, [place]);
 
   return (
-    <section className="restaurant-container">
-      <h2>Top Rated Restaurants</h2>
+    <section className="restaurant-container section-container">
+      <h2 class="section-title">
+        {' '}
+        <FontAwesomeIcon icon={faUtensils} /> Top Rated Restaurants
+      </h2>
       <div class="restaurant-list">
         {restState.isLoading ? (
           <Loading />

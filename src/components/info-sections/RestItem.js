@@ -13,10 +13,12 @@ const RestItem = ({ rest: { name, rating, priceRange, cuisines, imgSrc } }) => {
         <FontAwesomeIcon icon={faStar} />
         {rating}
       </div>
-      <div class="rest-price-range">
-        {Array(priceRange).fill(<FontAwesomeIcon icon={faDollarSign} />)}
+      <div class="rest-price-range"></div>
+      <div class="rest-cuisines">
+        {' '}
+        {Array(priceRange).fill(<FontAwesomeIcon icon={faDollarSign} />)} |{' '}
+        {cuisines}
       </div>
-      <div class="rest-cuisines">{cuisines}</div>
     </div>
   );
 };
