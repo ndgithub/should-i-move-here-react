@@ -42,18 +42,20 @@ const Breweries = ({ place }) => {
         {' '}
         <FontAwesomeIcon icon={faBeer} /> Local Breweries
       </h2>
-      {breweryState.isLoading ? (
-        <Loading />
-      ) : breweryState.isError ? (
-        'There was a problem getting the local breweries'
-      ) : breweryState.breweries.length > 0 ? (
-        breweryState.breweries.slice(0, 5).map(brewery => {
-          console.log(brewery);
-          return <BreweryItem brewery={brewery} />;
-        })
-      ) : (
-        'There are no breweries found'
-      )}
+      <div class="breweries-list">
+        {breweryState.isLoading ? (
+          <Loading />
+        ) : breweryState.isError ? (
+          'There was a problem getting the local breweries'
+        ) : breweryState.breweries.length > 0 ? (
+          breweryState.breweries.slice(0, 5).map(brewery => {
+            console.log(brewery);
+            return <BreweryItem brewery={brewery} />;
+          })
+        ) : (
+          'There are no breweries found'
+        )}
+      </div>
     </section>
   );
 };

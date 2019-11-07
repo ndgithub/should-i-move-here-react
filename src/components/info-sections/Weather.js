@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getWeathData } from '../../apiUtils';
 import Loading from '../Loading';
 import { Line } from 'react-chartjs-2';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
 
 const Weather = ({ place }) => {
   const [weathState, setWeathState] = useState({
@@ -30,8 +32,11 @@ const Weather = ({ place }) => {
     fetchWeath();
   }, [place]);
   return (
-    <div className="weather-container">
-      asdf
+    <div className="weather-container section-container">
+      <h2 class="section-title">
+        {' '}
+        <FontAwesomeIcon icon={faSun} /> Yearly Weather
+      </h2>
       {weathState.isLoading ? (
         <Loading />
       ) : weathState.isError ? (

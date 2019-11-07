@@ -1,4 +1,5 @@
-body {}
+body {
+}
 
 * {
   box-sizing: border-box;
@@ -14,7 +15,8 @@ body {}
 
 .landing {
   height: 100vh;
-  background: url('http://cdn.shopify.com/s/files/1/1207/2972/products/x31_grande.jpg?v=1500555567') no-repeat center center/cover fixed;
+  background: url('http://cdn.shopify.com/s/files/1/1207/2972/products/x31_grande.jpg?v=1500555567')
+    no-repeat center center/cover fixed;
 }
 
 .dark-overlay {
@@ -36,7 +38,8 @@ body {}
 }
 
 .main-background {
-  background: url('http://cdn.shopify.com/s/files/1/1207/2972/products/x31_grande.jpg?v=1500555567') no-repeat center center/cover fixed;
+  background: url('http://cdn.shopify.com/s/files/1/1207/2972/products/x31_grande.jpg?v=1500555567')
+    no-repeat center center/cover fixed;
   background-attachment: fixed;
 }
 
@@ -65,11 +68,16 @@ body {}
   color: white;
 }
 
+.city-info .sub-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .city-info {
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4);
+  grid-template-rows: repeat(4, auto);
   grid-template-areas: 'header header' 'search search' 'map weather' 'restaurants breweries';
 }
 
@@ -93,7 +101,8 @@ body {}
   background: white;
 }
 
-.restaurant-container {}
+.restaurant-container {
+}
 
 h2.section-title {
   font-size: 30px;
@@ -114,14 +123,22 @@ h2.section-title {
   text-align: center;
   border: 1px solid #e6e6e6;
   margin-bottom: 10px;
-  min-width: 10px;
+  width: 40%;
 }
 
-.rest-item {
-  text-align: center;
-  border: 1px solid #e6e6e6;
-  margin-bottom: 10px;
-  min-width: 10px;
+.rest-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.rest-info {
+  padding: 2px 6px 6px 6px;
+}
+.rest-rating {
+  color: #999999;
+}
+.rest-cuisines {
+  color: #999999;
 }
 
 .section-container {
@@ -131,6 +148,20 @@ h2.section-title {
 
 .brewery-container {
   grid-area: breweries;
+}
+.breweries-list {
+  grid-area: restaurants;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.brew-item {
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  width: 40%;
 }
 
 .search-container input {
