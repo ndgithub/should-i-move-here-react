@@ -5,7 +5,6 @@ export const getRestInfo = async place => {
   try {
     const zomLocInfo = await getZomLocInfo(place);
     const zomRestInfo = await getZomRestInfo(zomLocInfo);
-    console.log('zomRestInfo', zomRestInfo);
     return zomRestInfo;
   } catch (error) {
     console.log(error);
@@ -40,9 +39,8 @@ const getZomRestInfo = async ({ zomEntityId, zomEntityIdType }) => {
 
     const reqUrl = `https://developers.zomato.com/api/v2.1/location_details?entity_id=${zomEntityId}&entity_type=${zomEntityIdType}`;
     const res = await axios.get(reqUrl, config);
-    console.log(res.data);
     let rests = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 6; i++) {
       let rest = res.data.best_rated_restaurant[i].restaurant;
       let name = rest.name;
       let rating = rest.user_rating.aggregate_rating;
@@ -70,10 +68,7 @@ by_city=${city}`);
 };
 
 export const getWeathData = async ({ lat, lng }) => {
-  console.log('lat', lat);
-  console.log('ssuuuuuuuup');
   lat = lat.toString();
-  console.log('lat', lat);
   lng = lng.toString();
   const date = new Date();
   const lastYear = (date.getFullYear() - 1).toString();

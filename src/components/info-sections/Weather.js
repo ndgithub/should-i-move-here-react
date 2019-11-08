@@ -33,7 +33,7 @@ const Weather = ({ place }) => {
   }, [place]);
   return (
     <div className="weather-container section-container">
-      <h2 class="section-title">
+      <h2 className="section-title">
         {' '}
         <FontAwesomeIcon icon={faSun} /> Yearly Weather
       </h2>

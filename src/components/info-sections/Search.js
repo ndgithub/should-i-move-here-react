@@ -1,6 +1,5 @@
 import React from 'react';
 import Autocomplete from 'react-google-autocomplete';
-import RecentSearches from '../RecentSearches';
 
 const Search = ({ updatePlace, recSearches, children }) => {
   return (

@@ -4,18 +4,18 @@ import { faDollarSign, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const RestItem = ({ rest: { name, rating, priceRange, cuisines, imgSrc } }) => {
   return (
-    <div class="rest-item">
-      <img src={imgSrc} alt="restaurant" class="rest-img" />
+    <div className="rest-item">
+      <img src={imgSrc} alt="restaurant" className="rest-img" />
 
-      <div class="rest-img"></div>
-      <div class="rest-info">
-        <div class="rest-name">{name}</div>
-        <div class="rest-rating">
+      <div className="rest-img"></div>
+      <div className="rest-info">
+        <div className="rest-name">{name}</div>
+        <div className="rest-rating">
           <FontAwesomeIcon icon={faStar} />
           {rating}
         </div>
-        <div class="rest-price-range"></div>
-        <div class="rest-cuisines">
+        <div className="rest-price-range"></div>
+        <div className="rest-cuisines">
           {' '}
           {Array(priceRange).fill(
             <FontAwesomeIcon icon={faDollarSign} />

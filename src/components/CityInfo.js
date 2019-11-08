@@ -8,7 +8,6 @@ import Search from './info-sections/Search';
 import RecentSearches from './RecentSearches';
 
 const CityInfo = ({ updatePlace, place, recSearches }) => {
-  console.log('recSearches', recSearches);
   return (
     <div className="main-background">
       <div className="dark-overlay">

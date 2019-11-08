@@ -16,7 +16,6 @@ const StyledButton = withStyles({
 })(Button);
 
 const RecentSearchesItem = ({ place, updatePlace }) => {
-  console.log('place', place);
   const placeSplit = place.formatted_address.split(',');
   placeSplit.pop();
   const city = placeSplit.join(',');

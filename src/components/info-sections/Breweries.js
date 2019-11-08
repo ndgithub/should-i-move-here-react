@@ -19,7 +19,6 @@ const Breweries = ({ place }) => {
       });
       try {
         const res = await getBreweries(place);
-        console.log(res);
         setBreweryState({
           breweries: res,
           isLoading: false,
@@ -38,19 +37,18 @@ const Breweries = ({ place }) => {
 
   return (
     <section className="brewery-container section-container">
-      <h2 class="section-title">
+      <h2 className="section-title">
         {' '}
         <FontAwesomeIcon icon={faBeer} /> Local Breweries
       </h2>
-      <div class="breweries-list">
+      <div className="breweries-list">
         {breweryState.isLoading ? (
           <Loading />
         ) : breweryState.isError ? (
           'There was a problem getting the local breweries'
         ) : breweryState.breweries.length > 0 ? (
-          breweryState.breweries.slice(0, 5).map(brewery => {
-            console.log(brewery);
-            return <BreweryItem brewery={brewery} />;
+          breweryState.breweries.slice(0, 5).map((brewery, i) => {
+            return <BreweryItem key={i} brewery={brewery} />;
           })
         ) : (
           'There are no breweries found'

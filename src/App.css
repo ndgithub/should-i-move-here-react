@@ -1,4 +1,6 @@
 body {
+  width: 100%;
+  height: 100%;
 }
 
 * {
@@ -24,7 +26,11 @@ body {
   height: 100%;
   width: 100%;
 }
-
+.main-background .dark-overlay {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+}
 .landing-inner {
   color: #fff;
   height: 100%;
@@ -46,7 +52,6 @@ body {
 .container {
   max-width: 1100px;
   padding: 20px;
-  margin: auto;
 }
 
 .title {
@@ -93,7 +98,6 @@ body {
 .map-container {
   position: relative;
   grid-area: map;
-  overflow: hidden;
 }
 
 .weather-container {
@@ -108,7 +112,6 @@ h2.section-title {
   font-size: 30px;
   background: #e6e6e6;
   padding: 10px;
-  margin-bottom: 10px;
 }
 
 .restaurant-list {
@@ -117,6 +120,8 @@ h2.section-title {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  background: white;
+  padding-top: 10px;
 }
 
 .rest-item {
@@ -142,7 +147,6 @@ h2.section-title {
 }
 
 .section-container {
-  background: white;
   text-align: center;
 }
 
@@ -155,6 +159,8 @@ h2.section-title {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  background: white;
+  padding-top: 10px;
 }
 
 .brew-item {
@@ -192,4 +198,14 @@ h2.section-title {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 960px) {
+  .city-info {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6);
+    grid-template-areas: 'header' 'search' 'map' 'weather' 'restaurants' 'breweries';
+  }
 }

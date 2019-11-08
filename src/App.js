@@ -21,7 +21,6 @@ const App = () => {
 
   // have entered city in this state
   const updatePlace = place => {
-    console.log('updatePlace()');
     addToRecSearches(place, setRecSearches);
     setPlace(place);
   };

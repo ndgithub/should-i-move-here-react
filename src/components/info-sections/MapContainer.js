@@ -7,7 +7,6 @@ export class MapContainer extends React.Component {
     this.size = React.createRef();
   }
   render(props) {
-    console.log(this.size);
     return (
       <Map
         google={this.props.google}

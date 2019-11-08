@@ -4,7 +4,6 @@ import Loading from '../Loading';
 import RestItem from './RestItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils } from '@fortawesome/free-solid-svg-icons';
-console.log('RestItem', RestItem);
 
 const Restaurants = ({ place }) => {
   const [restState, setRestState] = useState({
@@ -34,18 +33,18 @@ const Restaurants = ({ place }) => {
 
   return (
     <section className="restaurant-container section-container">
-      <h2 class="section-title">
+      <h2 className="section-title">
         {' '}
         <FontAwesomeIcon icon={faUtensils} /> Top Rated Restaurants
       </h2>
-      <div class="restaurant-list">
+      <div className="restaurant-list">
         {restState.isLoading ? (
           <Loading />
         ) : restState.isError ? (
           'We had some trouble getting the restaurants'
         ) : (
-          restState.rests.map(rest => {
-            return <RestItem rest={rest} />;
+          restState.rests.map((rest, i) => {
+            return <RestItem key={i} rest={rest} />;
           })
         )}
       </div>
