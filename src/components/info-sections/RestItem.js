@@ -7,7 +7,6 @@ const RestItem = ({ rest: { name, rating, priceRange, cuisines, imgSrc } }) => {
     <div className="rest-item">
       <img src={imgSrc} alt="restaurant" className="rest-img" />
 
-      <div className="rest-img"></div>
       <div className="rest-info">
         <div className="rest-name">{name}</div>
         <div className="rest-rating">
