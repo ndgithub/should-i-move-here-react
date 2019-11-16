@@ -5,9 +5,9 @@ const Search = ({ updatePlace, recSearches, children }) => {
   return (
     <div className="search-container">
       <Autocomplete
+        placeholder="Enter a U.S. city"
         style={{ width: '90%' }}
         onPlaceSelected={place => {
-          console.log('sup');
           updatePlace({
             formatted_address: place.formatted_address,
             lat: place.geometry.location.lat(),

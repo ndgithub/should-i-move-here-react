@@ -34,8 +34,11 @@ body {
 .landing-inner {
   color: #fff;
   height: 100%;
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .main-background {
