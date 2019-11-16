@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.22",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
@@ -12,12 +13,14 @@
     "chart.js": "^2.9.2",
     "dotenv": "^8.2.0",
     "google-maps-react": "^2.0.2",
+    "halogen": "^0.2.0",
     "react": "^16.11.0",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.11.0",
     "react-google-autocomplete": "^1.1.2",
     "react-places-autocomplete": "^7.2.1",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "react-spinners": "^0.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
