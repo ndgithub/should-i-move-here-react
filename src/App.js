@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import { addToRecSearches } from './apiUtils';
 import { LOC_STORE_REC_SEARCHES } from './constants';
 
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') dotenv.config();
 
 const App = () => {
   const [place, setPlace] = useState({
